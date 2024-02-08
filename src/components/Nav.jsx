@@ -6,6 +6,7 @@ export default function Nav() {
       <h1>Mi nav</h1>
       <div>
         <Link to="/">Inicio</Link>
+        <Link to="/nueva">Nueva cosa</Link>
         <Link to="/login">Login</Link>
         <Link to="/registro">Registro</Link>
       </div>
