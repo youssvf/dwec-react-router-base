@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { login } from "../services/usuarios.service";
 
 export default function Login() {
   const [alias, setAlias] = useState("");
@@ -6,17 +7,7 @@ export default function Login() {
 
   const doLogin = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8080/api/usuarios/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ alias, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("token", data.token);
-      });
+    login(alias, password);
   };
 
   return (
