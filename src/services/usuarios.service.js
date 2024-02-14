@@ -20,7 +20,8 @@ const login = async (alias, password) => {
     body: JSON.stringify({ alias, password }),
   });
   const json = await data.json();
-  localStorage.setItem("token", json.token);
+  guardarLector(alias);
+  guardarToken(json.token);
 };
 
 
@@ -33,7 +34,18 @@ const registro = async(alias,password) => {
     body: JSON.stringify({ alias, password }),
   });
   const json = await data.json();
-  console.log(data.alias);
+  console.log(json.alias);
 }
 
 export { login, registro };
+
+
+function guardarLector(lector){
+  localStorage.removeItem(lector);
+  localStorage.setItem('lector', lector);
+}
+
+function guardarToken(token){
+  localStorage.removeItem('token');
+  localStorage.setItem("token", token);
+}
