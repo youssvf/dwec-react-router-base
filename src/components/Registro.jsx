@@ -19,6 +19,8 @@ export default function Registro() {
     //   .then((data) => {
     //     console.log(data);
     //   });
+
+    fetch()
   };
 
   return (
